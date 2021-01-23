@@ -1,5 +1,11 @@
 const ip = require("ip");
+const DF = require("dateformat");
 const nodemailer = require("nodemailer");
+
+
+const now = new Date();
+
+console.log(DF(now, "yyyy-mm-dd HH:MM:ss"));
 
 const option = {
     transport: {

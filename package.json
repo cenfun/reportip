@@ -12,6 +12,7 @@
     "eslint": "^7.18.0"
   },
   "dependencies": {
+    "dateformat": "^4.5.0",
     "ip": "^1.1.5",
     "nodemailer": "^6.4.17"
   }
