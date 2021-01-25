@@ -25,9 +25,13 @@ if (fs.existsSync(cachePath)) {
 }
 
 const checkIp = function() {
+
+    const now = new Date();
+    const date = DF(now, "yyyy-mm-dd HH:MM:ss");
+
     const ip = IP.address();
     if (ip === currentIp) {
-        console.log(`IP No Change: ${ip}`);
+        console.log(`IP No Change: ${ip} (${date})`);
         return;
     }
     currentIp = ip;
@@ -35,8 +39,7 @@ const checkIp = function() {
         ip: ip
     }, null, 2);
     fs.writeFileSync(cachePath, json);
-    const now = new Date();
-    const date = DF(now, "yyyy-mm-dd HH:MM:ss");
+    
     config.email.subject = `ReportIP: ${ip} (${date})`;
     sendEmail(config.email.subject);
 };
